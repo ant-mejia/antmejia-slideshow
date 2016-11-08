@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Football Slideshow</title>
+    <style type="text/css">
+    body {
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        background: url('lff.jpg');
+        background-size: cover;
+    }
+    
+    #slideshow {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+    
+    .slide {
+        margin: 0 auto;
+        display: block;
+    }
+    
+    h3 {
+        position: absolute;
+        font-size: 50px;
+        text-align: center;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-weight: 200;
+        top: -6%;
+    }
+    
+    .slide img {
+        max-width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .button-wrapper a {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin: 10% 50px;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+    
+    .button-wrapper {
+        width: 100%;
+        margin-top: -3.5%;
+        position: absolute;
+        text-align: center;
+        height: 5%;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding-top: 15px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="slideshow">
+        <div class="slide">
+            <h3>Aaron Rodgers</h3>
+            <img src="arod.jpg">
+        </div>
+        <div class="slide">
+            <h3>Julio Jones</h3>
+            <img src="julio2.jpg">
+        </div>
+        <div class="slide">
+            <h3>TY Hilton</h3>
+            <img src="hilton.jpg">
+        </div>
+        <div class="slide">
+            <h3>Frank Gore</h3>
+            <img src="gore.jpg">
+        </div>
+        <div class="slide">
+            <h3>Terrance West</h3>
+            <img src="terrance-west.jpg">
+        </div>
+        <div class="slide">
+            <h3>Steve Smith Sr.</h3>
+            <img src="stevesmith.jpg">
+        </div>
+        <div class="slide">
+            <h3>Dan Bailey</h3>
+            <img src="danbailey.jpg">
+        </div>
+        <div class="slide">
+            <h3>Carolina Panthers</h3>
+            <img src="panthers.jpg">
+        </div>
+        <div class="button-wrapper">
+            <a class="back-button" onclick="moveSlide(-1)">Previous</a>
+            <a class="forward-button" onclick="moveSlide(+1)">Next</a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function moveSlide(n) {
+    showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+    var i;
+    var z = document.getElementsByClassName('slide');
+    if (n > z.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = z.length;
+    }
+    for (var i = 0; i < z.length; i++) {
+        z[i].style.display = "none";
+    }
+    z[slideIndex - 1].style.display = "initial";
+}
+</script>
+
+</html>
